@@ -1,0 +1,75 @@
+Data::Reporter module for Perl
+----------------------
+
+Ricardo Vazquez
+rvazquez_a@yahoo.com
+
+This module generates ascii reports from a Database or a plain ascii file.
+
+
+Data::Reporter has a series of components. The user has only to define the 
+contents or functions that each component will use or display. Some are 
+mandatory (Header, Title, Detail) while others are optional to the user.
+Here is the list of all the components:
+	- Header
+   - Title
+   - Detail
+   - Breaks
+   - Final
+   - Footer
+
+Because of perl's multiple plataform availability, the same report program 
+can be run in many platforms with no changes in the code. The modules have been tested on Solaris, Windows NT and Windows 95.
+
+A visual report generator called VisRep.pl is also included. This is based
+on PerlTk. This program generates perl programs, that can be executed. 
+VisRep.pl can be later used to edit such generated programs.
+
+Three examples are included:
+avef5803.pl    Uses a plain ascii file ajusbena.rep as datasource.
+               generates the BENAVIDES file
+avef5803a.pl   The same program as avef5803.pl, but created with VisRep.pl
+               generates the BENAVIDES file
+avef5804.pl    Uses a Sybase datasource.
+               This program has been created with VisRep.pl
+               and generates the INVOICES file
+
+
+Files Manifest:
+---------------
+README.TXT						this file
+Makefile.PL                perl script to generate Makefile
+bin/VisRep.pl					visual report generator
+bin/Sources.cfg				available data sources for VisRep.pl 
+									(only Sybsource at this time)
+examples/ajusbena.rep		data source for avef5803.pl
+examples/avef5803.pl			example for a plain ascii file source
+examples/avef5803a.pl		example for a plain ascii file source 
+									(same as avef5803.pl but created with VisRep.pl)
+examples/avef5804.pl			example for Sybase source
+examples/avef5804a.pl		example for Sybase source 
+									(same as avef5804.pl, but created with VisRep.pl)
+examples/sybase.cfg			login information for sybase conexion
+examples/BENAVIDES			avef5803.pl output
+examples/INVOICES				avef5804.pl output
+Reporter/Datasource.pm		abstract class for sources
+Reporter/Filesource.pm		File source class
+Reporter/Sybsource.pm		Sybase source class
+Reporter/RepFormat.pm		module to manipulate text in memory
+Reporter/Reporter.pm			main module to generate reports
+Reporter/VisSection.pm		module to manipulate report sections (used only by VisRep.pl)
+
+Install:
+--------
+Type:
+perl Makefile.PL
+make 
+make install
+
+
+Please send any comments or suggestions
+
+Copyright (c) 1999 Ricardo Vazquez. All rights reserved. This program is free
+software; you can redistribute it and/or modify it under the same terms as
+Perl itself.
+
